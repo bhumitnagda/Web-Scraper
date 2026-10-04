@@ -1,0 +1,8 @@
+test.py
+.env
+__pycache__/
+venv/
+credentials.json
+authorized_user.json
+input_data/
+output/
