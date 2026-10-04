@@ -58,7 +58,42 @@ The script will:
 output/ashford_records.csv
 ```
 ## Google Sheets Setup
-Download a Google OAuth Desktop Client JSON file and save it as:
+Google OAuth is used to create and update Google Sheets.
+
+### 1. Create a Google Cloud Project
+
+Go to Google Cloud Console and create a new project.
+
+### 2. Enable Required APIs
+
+Enable both:
+
+- Google Sheets API
+- Google Drive API
+
+The Sheets API writes data to the spreadsheet, while the Drive API creates and shares the spreadsheet.
+
+### 3. Configure OAuth
+
+Open **Google Auth Platform** and configure the OAuth consent screen.
+
+For development/testing:
+
+- Select **External**
+- Add your Google account as a **Test User**
+- Add access for Google Sheets and Google Drive
+
+### 4. Create OAuth Credentials
+
+Go to:
+
+**APIs & Services → Credentials → Create Credentials → OAuth Client ID**
+
+Choose:
+
+**Application type: Desktop app**
+
+Download the generated JSON file and rename it to:
 ```text
 credentials.json
 ```
