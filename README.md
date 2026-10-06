@@ -1,62 +1,40 @@
 # SearchIQS Land Records Scraper
 
-Python scraper for extracting land record data from manually saved SearchIQS result pages and exporting the results to CSV / Google Sheets.
+Scrapes the Connecticut SearchIQS Land Records results for the most recent 80
+days, saves the records to CSV, and uploads them to a shareable Google Sheet.
 
-## Features
-
-- Parses multiple SearchIQS result pages
-- Extracts:
-  - Party 1
-  - Party 2
-  - Type
-  - Book-Page
-  - Date
-  - Description
-  - Additional Description
-  - Related
-- Removes duplicate records using RecordID
-- Exports records to CSV
-- Supports Google Sheets upload using OAuth
-
-## Project Structure
-
-```text
-Web-Scraper/
-├── main.py
-├── parser.py
-├── scraper.py
-├── google_sheets.py
-├── config.py
-├── requirements.txt
-└── .gitignore
-```
 ## Setup
-Create and activate a virtual environment in the terminal:
-```bash
+
+Create and activate a virtual environment, then install the dependencies:
+
+```powershell
 python -m venv venv
-venv\Scripts\activate
-```
-Install dependencies:
-```text
+venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
-Place the manually downloaded SearchIQS result pages in the project folder.
-Example:
-```
-Search Results.html
-```
-Run:
+
+Add your Cloudflare clearance cookie to the root `.env` file:
+
 ```text
+CF_COOKIE=your_cf_clearance_cookie
+```
+
+The `.env` file is ignored by Git. Keep the cookie private and refresh it when
+it expires.
+
+## Run
+
+```powershell
 python main.py
 ```
-The script will:
 
-- Parse all configured HTML pages
-- Combine the extracted records
-- Remove duplicate records and save the result to:
+The scraper follows the guest login and Land Records search flow, retrieves all
+result pages, writes the eight extracted fields to:
+
 ```text
 output/ashford_records.csv
 ```
+<<<<<<< HEAD
 ## Google Sheets Setup
 Google OAuth is used to create and update Google Sheets.
 
@@ -103,4 +81,9 @@ authorized_user.json
 ```
 
 
+=======
+>>>>>>> 34bb97f (Updated code)
 
+It also creates a Google Sheet, uploads the records, and prints the sheet URL.
+Google OAuth credentials must be available in `credentials.json`; the first
+successful login creates `authorized_user.json`.

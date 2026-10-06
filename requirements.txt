@@ -1,2 +1,4 @@
 beautifulsoup4==4.15.0
 gspread==6.2.1
+curl_cffi
+python-dotenv

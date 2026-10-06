@@ -2,7 +2,6 @@ import csv
 import gspread
 
 FIELDNAMES = [
-    "RecordID",
     "Party 1",
     "Party 2",
     "Type",
@@ -102,11 +101,6 @@ def upload_to_google_sheets(records: list[dict]) -> str:
 
     print(
         "created google sheet"
-    )
-
-    print(
-        "Google Sheet URL:",
-        spreadsheet.url
     )
 
     return spreadsheet.url
